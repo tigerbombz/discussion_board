@@ -1,1 +1,32 @@
-<h1>Welcome to the Dashboard</h1>
+<div ng-controller='dashboardsController'>
+  <h1>Welcome to the Dashboard</h1>
+  Welcome {{user.name}}
+
+<table border="1" style="width:100%">
+  <tr>
+    <th>Category</th>
+    <th>Topic</th>
+    <th>User Name</th>
+    <th>Post Count</th>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+    <td></td>
+  </tr>
+</table>
+<hr>
+<h3>Add a New Topic</h3>
+
+  <form>
+    Topic: <input type="text" ng-model='newTopic.topic'><br>
+    Description: <input type="text" ng-model='newTopic.description'><br>
+    Category: <select name="Rails" id="" ng-model='newTopic.category'>
+      <option value="html">HTML</option>
+      <option value="mean">MEAN</option>
+      <option value="python">PYTHON</option>
+    </select>
+    <input type="submit" value="Create Topic" ng-click='addTopic()'>
+  </form>
+</div>

@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var Login = mongoose.model('Login');
+var Topic = mongoose.model('Topic');
 
 module.exports = (function() {
   return {
     show: function(req, res) {
-      Login.findOne({_id: req.params.id}, function(err, results){
+      Topic.find({}, function(err, results){
         if(err) {
           console.log(err);
         } else {
@@ -15,7 +15,7 @@ module.exports = (function() {
 
     post: function(req, res) {
       console.log("im in my controllers");
-      Login.create(req.body, function(err, results){
+      Topic.create(req.body, function(err, results){
         if(err) {
           console.log(err);
         } else {
@@ -25,7 +25,7 @@ module.exports = (function() {
     },
 
     delete: function(req, res){
-      Login.remove({_id: req.params.id}, function (err, results){
+      Topic.remove({_id: req.params.id}, function (err, results){
       console.log(results);
       });
     }
