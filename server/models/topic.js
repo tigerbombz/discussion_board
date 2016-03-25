@@ -6,7 +6,8 @@ var TopicSchema = new mongoose.Schema({
   name: String,
   topic: String,
   description: String,
-  category: String
+  category: String,
+  UserId: String
 });
 // use the schema to create the model
 // Note that creating a model CREATES the collection in the database (makes the collection plural)

@@ -9,10 +9,14 @@
     <th>User Name</th>
     <th>Post Count</th>
   </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
+  <tr ng-repeat='topic in topics'>
+    <td>{{topic.category}}</td>
+    <td>
+      <a href="#">{{topic.topic}}</a>
+    </td>
+    <td>
+      <a href="#">{{topic.name}}</a>
+    </td>
     <td></td>
   </tr>
 </table>
@@ -23,10 +27,12 @@
     Topic: <input type="text" ng-model='newTopic.topic'><br>
     Description: <input type="text" ng-model='newTopic.description'><br>
     Category: <select name="Rails" id="" ng-model='newTopic.category'>
-      <option value="html">HTML</option>
-      <option value="mean">MEAN</option>
-      <option value="python">PYTHON</option>
+      <option value="HTML">HTML</option>
+      <option value="MEAN">MEAN</option>
+      <option value="PYTHON">PYTHON</option>
     </select>
+    <input type="hidden" ng-value='newTopic.UserId = user._id'>
+    <input type="hidden" ng-value='newTopic.name = user.name'>
     <input type="submit" value="Create Topic" ng-click='addTopic()'>
   </form>
 </div>

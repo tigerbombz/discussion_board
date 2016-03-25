@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Topic = mongoose.model('Topic');
+var Login = mongoose.model('Login');
 
 module.exports = (function() {
   return {
@@ -32,4 +33,3 @@ module.exports = (function() {
 
   };
 })();
-

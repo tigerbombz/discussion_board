@@ -60,6 +60,7 @@
       factory.addTopic = function(info, callback){
         $http.post('/topics',info).success(function (output){
           topics.push(output);
+          callback(topics);
         })
       }
       return factory
@@ -75,15 +76,19 @@
       $scope.create = function() {
         loginFactory.create($scope.newLogin, function(data){
           $scope.logins = data;
+
+
+          console.log($scope.logins);
           $location.path('/partial2/' + $scope.logins._id)
         })
         $scope.newLogin = {};
+
       }
     })//END OF LOGIN CONTROLLER
 
 
     //DASHBOARD CONTROLLER
-    myApp.controller('dashboardsController', function($scope, $routeParams, loginFactory){
+    myApp.controller('dashboardsController', function($scope, $routeParams, loginFactory, topicFactory){
       $scope.logins = $routeParams;
       // console.log($scope.logins.id)
       loginFactory.index($scope.logins.id, function(data){
@@ -93,7 +98,15 @@
         $scope.topics = data;
       })
       $scope.addTopic = function(data){
-        console.log($scope.newTopic)
+        topicFactory.addTopic($scope.newTopic, function(){
+          topicFactory.index(function(data){
+            $scope.topics = data;
+            console.log('RETURN DATA JSON' , $scope.topics);
+          })
+        })
+        console.log($scope.newTopic);
+        $scope.newTopic = {};
+      }
     })//END OF DASHBOARD CONTROLLER
 
 
