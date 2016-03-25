@@ -18,6 +18,9 @@
       .when('/partial2/:id',{
         templateUrl: 'static/partials/dashboard.html'
       })
+      .when('/partial3/:id',{
+        templateUrl: 'static/partials/user.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -114,7 +117,7 @@
 </head>
 <body>
   <div ng-app='myApp'>
-    <a href="#/">Login</a> | <a href="#/partial2/:id">Dashboard</a>
+    <a href="#/">Login</a> | <a href="#/partial2/:id">Dashboard</a> | <a href="#/partial3/:id">User Profile</a>
     <div ng-view=''></div>
   </div>
 </body>
